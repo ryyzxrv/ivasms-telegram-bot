@@ -1,0 +1,31 @@
+{
+  "name": "iVASMS Telegram Bot",
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": ["--line-length", "88"],
+        "python.sortImports.args": ["--profile", "black"]
+      }
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt && playwright install",
+  "forwardPorts": [8000],
+  "remoteUser": "vscode"
+}
