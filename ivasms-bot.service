@@ -1,0 +1,40 @@
+[Unit]
+Description=iVASMS Telegram Bot
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=botuser
+Group=botuser
+WorkingDirectory=/opt/ivasms-telegram-bot
+ExecStart=/opt/ivasms-telegram-bot/venv/bin/python /opt/ivasms-telegram-bot/main.py
+Restart=always
+RestartSec=10
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+# Environment
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=/opt/ivasms-telegram-bot/.env
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/ivasms-telegram-bot/data /opt/ivasms-telegram-bot/logs /opt/ivasms-telegram-bot/screenshots /opt/ivasms-telegram-bot/browser_state
+
+# Resource limits
+LimitNOFILE=65536
+MemoryMax=1G
+CPUQuota=50%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ivasms-bot
+
+[Install]
+WantedBy=multi-user.target

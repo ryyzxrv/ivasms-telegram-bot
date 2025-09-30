@@ -1,0 +1,20 @@
+# Core dependencies
+playwright==1.40.0
+python-telegram-bot[all]==20.7
+python-dotenv==1.0.0
+aiofiles==23.2.1
+
+# Database and storage
+sqlite-utils==3.35.2
+
+# Logging and utilities
+structlog==23.2.0
+tenacity==8.2.3
+
+# Development dependencies
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-mock==3.12.0
+black==23.11.0
+isort==5.12.0
+pylint==3.0.3
