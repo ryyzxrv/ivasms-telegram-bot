@@ -37,7 +37,7 @@ class IVASMSClient:
         
         # URLs
         self.base_url = "https://www.ivasms.com"
-        self.login_url = f"{self.base_url}/portal/login"
+        self.login_url = f"{self.base_url}/login"
         self.dashboard_url = f"{self.base_url}/portal"
         self.sms_received_url = f"{self.base_url}/portal/sms/received"
         
